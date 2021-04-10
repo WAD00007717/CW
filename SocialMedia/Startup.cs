@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SocialMedia.Data;
 
 namespace SocialMedia
 {
@@ -25,7 +27,12 @@ namespace SocialMedia
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // DB context
+            services.AddDbContext<PostContext>(opt => opt.UseSqlServer
+                (Configuration.GetConnectionString("SocialMediaConnection")));
+
             services.AddControllers();
+            services.AddScoped<IPostRepo, MockPostRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
