@@ -1,0 +1,15 @@
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csprojAssemblyReference.cache
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.AssemblyInfo.cs
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\bin\Debug\netcoreapp3.1\Infrastructure.deps.json
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\bin\Debug\netcoreapp3.1\Infrastructure.runtimeconfig.json
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\bin\Debug\netcoreapp3.1\Infrastructure.runtimeconfig.dev.json
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\bin\Debug\netcoreapp3.1\Infrastructure.dll
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\bin\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CopyComplete
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.dll
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Users\Khotam\Desktop\SocialMediaSolution\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.genruntimeconfig.cache
