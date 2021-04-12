@@ -8,5 +8,6 @@ namespace Domain.Models
     {
         public int PostID { get; set; }
         public Post post { get; set; }
+        public int Id { get; set; }
     }
 }
