@@ -50,9 +50,13 @@ namespace Infrastructure.Repositories
             ICollection<Comment> comments;
             if (userId != null)
             {
-                comments = await _context.Comments.Where(p => p.UserId == userId).Skip(((page - 1) * pageSize)).Take(pageSize).ToListAsync();
+                comments = await _context.Comments.Where(p => p.UserId == userId)
+                                        .Skip(((page - 1) * pageSize)).Take(pageSize)
+                                        .OrderByDescending(c => c.CreatedAt).ToListAsync();
             }
-            comments = await _context.Comments.Skip(((page - 1) * pageSize)).Take(pageSize).ToListAsync();
+            comments = await _context.Comments
+                                    .Skip(((page - 1) * pageSize)).Take(pageSize)
+                                    .OrderByDescending(c => c.CreatedAt).ToListAsync();
             CommentsWithCountDto list = new CommentsWithCountDto();
             list.Comments = comments;
             list.Count = count;

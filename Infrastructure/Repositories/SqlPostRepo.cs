@@ -50,9 +50,15 @@ namespace Infrastructure.Repositories
             ICollection<Post> posts;
             if(userId != null)
             {
-                posts = await _context.Posts.Include(p => p.User).Where(p => p.UserId == userId).Skip(((page - 1) * pageSize)).Take(pageSize).ToListAsync();
+                posts = await _context.Posts.FromSqlRaw("select Id, Title, '' as Image, UserId, Description, CreatedAt from dbo.Posts").Include(p => p.User)
+                                            .Where(p => p.UserId == userId).Skip(((page - 1) * pageSize)).Take(pageSize)
+                                            .OrderByDescending(p => p.CreatedAt).ToListAsync();
             }
-            posts = await _context.Posts.Include(p => p.User).Skip(((page - 1) * pageSize)).Take(pageSize).ToListAsync();
+
+            posts = await _context.Posts.FromSqlRaw("select Id, Title, '' as Image, UserId, Description, CreatedAt from dbo.Posts").Include(p => p.User)
+                                            .Skip(((page - 1) * pageSize)).Take(pageSize)
+                                            .OrderByDescending(p => p.CreatedAt).ToListAsync();
+           
             PostsWithCountDto list = new PostsWithCountDto();
             list.Posts = posts;
             list.Count = count;

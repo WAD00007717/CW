@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
+using Domain.DTO.ImageDTOs;
 
 namespace SocialMedia.Helpers
 {
@@ -16,6 +17,7 @@ namespace SocialMedia.Helpers
             CreateMap<PostUpdateDto, Post>();
             CreateMap<PostCreateDto, Post>();
             CreateMap<Post, PostUpdateDto>();
+            CreateMap<ICollection<Post>, ICollection<PostsWithoutImageDto>>();
 
             CreateMap<CommentsWithCountDto, CommentsGetAllDto>();
             CreateMap<Comment, CommentReadDto>();
@@ -26,6 +28,9 @@ namespace SocialMedia.Helpers
             CreateMap<User, UserReadDto>();
             CreateMap<UserCreateDto, User>();
             CreateMap<User, LoginDto>();
+
+            CreateMap<string, ImageUrlDto>();
+
 
         }
     }

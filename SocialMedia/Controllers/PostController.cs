@@ -28,7 +28,7 @@ namespace SocialMedia.Controllers
 
         // GET api/posts
         [HttpGet]
-        public async Task<ActionResult<PostsWithCountDto>> GetAllPosts([FromQuery] int? pageNumber, int? userId)
+        public async Task<ActionResult<PostsWithCountDto>> GetAllPostsAsync([FromQuery] int? pageNumber, int? userId)
         {
             var posts = await _repository.GetAllPostsAsync(pageNumber, userId);
             return Ok(posts);

@@ -38,7 +38,10 @@ namespace Infrastructure.Repositories
             int pageSize = 10;
             int page = pageNumber ?? 1;
             var count = _context.Users.Count();
-            var users = await _context.Users.Skip(((page - 1) * pageSize)).Take(pageSize).ToListAsync();
+            var users = await _context.Users
+                                    .Skip(((page - 1) * pageSize)).Take(pageSize)
+                                    .OrderByDescending(u => u.CreatedAt).ToListAsync();
+
             UsersWithCountDto list = new UsersWithCountDto();
             list.Users = users;
             list.Count = count;
