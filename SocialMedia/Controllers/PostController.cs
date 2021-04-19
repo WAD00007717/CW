@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.DTO;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Interfaces;
@@ -27,17 +28,18 @@ namespace SocialMedia.Controllers
 
         // GET api/posts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Post>>> GetAllPosts()
+        public async Task<ActionResult<PostsWithCountDto>> GetAllPosts([FromQuery] int? pageNumber, int? userId)
         {
-            var posts = await  _repository.GetAllPosts();
-            return Ok(_mapper.Map<IEnumerable<PostReadDto>>(posts));
+            var posts = await _repository.GetAllPostsAsync(pageNumber, userId);
+            return Ok(posts);
         }
 
         // GET api/posts/{id}
-        [HttpGet("{id}", Name = "GetPostById")]
-        public ActionResult<PostReadDto> GetPostById(int id)
+        [Authorize]
+        [HttpGet("{id}", Name = "GetPostByIdAsync")]
+        public async Task<ActionResult<PostReadDto>> GetPostByIdAsync(int id)
         {
-            var post = _repository.GetPostById(id);
+            var post = await _repository.GetPostByIdAsync(id);
             if (post == null)
             {
                 return NotFound();
@@ -46,24 +48,25 @@ namespace SocialMedia.Controllers
         }
 
         // POST api/posts
+        [Authorize]
         [HttpPost]
-        public ActionResult<PostReadDto> CreatePost(PostCreateDto post)
+        public async Task<ActionResult<PostReadDto>> CreatePostAsync(PostCreateDto post)
         {
             var postModel = _mapper.Map<Post>(post);
-            _repository.CreatePost(postModel);
-            _repository.SaveChanges();
+            await _repository.CreatePostAsync(postModel);
+            await _repository.SaveChangesAsync();
 
             var postReadDto = _mapper.Map<PostReadDto>(postModel);
 
-            return CreatedAtRoute(nameof(GetPostById), new { Id = postReadDto.Id }, postReadDto);
+            return CreatedAtRoute(nameof(GetPostByIdAsync), new { Id = postReadDto.Id }, postReadDto);
             // return Ok(postReadDto);
         }
 
         // PUT api/posts/{1}
         [HttpPut("{id}")]
-        public ActionResult UpdatePost(int id, PostUpdateDto post)
+        public async Task<ActionResult> UpdatePost(int id, PostUpdateDto post)
         {
-            var postModelFromRepo = _repository.GetPostById(id);
+            var postModelFromRepo = await _repository.GetPostByIdAsync(id);
             if (postModelFromRepo == null)
             {
                 return NotFound();
@@ -72,23 +75,23 @@ namespace SocialMedia.Controllers
             _mapper.Map(post, postModelFromRepo);
 
             _repository.UpdatePost(postModelFromRepo);
-            _repository.SaveChanges();
+            await _repository.SaveChangesAsync();
 
             return NoContent();
         }
 
         // DELETE api/posts/{1}
         [HttpDelete("{id}")]
-        public ActionResult DeletePost(int id)
+        public async Task<ActionResult> DeletePost(int id)
         {
-            var postModelFromRepo = _repository.GetPostById(id);
+            var postModelFromRepo = await _repository.GetPostByIdAsync(id);
             if (postModelFromRepo == null)
             {
                 return NotFound();
             }
 
             _repository.DeletePost(postModelFromRepo);
-            _repository.SaveChanges();
+            await _repository.SaveChangesAsync();
 
             return NoContent();
         }
