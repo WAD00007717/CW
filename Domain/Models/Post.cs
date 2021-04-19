@@ -10,10 +10,13 @@ namespace Domain.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [MinLength(10)]
+        [MaxLength(100)]
         public string Title { get; set; }
-        public DateTime? Date { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }
