@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.DTO;
+using Domain.Models;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using SocialMedia.Interfaces;
@@ -19,14 +20,16 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public void CreatePost(Post post)
+        public async Task<Post> CreatePostAsync(Post post)
         {
             if (post == null)
             {
                 throw new ArgumentNullException(nameof(post));
             }
 
-            _context.Posts.Add(post);
+            post.CreatedAt = DateTime.Now;
+            await _context.Posts.AddAsync(post);
+            return post;
         }
 
         public void DeletePost(Post post)
@@ -39,19 +42,32 @@ namespace Infrastructure.Repositories
             _context.Posts.Remove(post);
         }
 
-        public async Task<IEnumerable<Post>> GetAllPosts()
+        public async Task<PostsWithCountDto> GetAllPostsAsync(int? pageNumber, int? userId)
         {
-            return await _context.Posts.ToListAsync();
+            int pageSize = 10;
+            int page = pageNumber ?? 1;
+            var count = _context.Posts.Count();
+            ICollection<Post> posts;
+            if(userId != null)
+            {
+                posts = await _context.Posts.Include(p => p.User).Where(p => p.UserId == userId).Skip(((page - 1) * pageSize)).Take(pageSize).ToListAsync();
+            }
+            posts = await _context.Posts.Include(p => p.User).Skip(((page - 1) * pageSize)).Take(pageSize).ToListAsync();
+            PostsWithCountDto list = new PostsWithCountDto();
+            list.Posts = posts;
+            list.Count = count;
+            return list;
         }
 
-        public Post GetPostById(int id)
+        public async Task<Post> GetPostByIdAsync(int id)
         {
-            return _context.Posts.FirstOrDefault(p => p.Id == id);
+            var post = await _context.Posts.Include(p => p.Comments).FirstOrDefaultAsync(p => p.Id == id);
+            return post;
         }
 
-        public bool SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
-            return (_context.SaveChanges() >= 0);
+            return (await _context.SaveChangesAsync() >= 0);
         }
 
         public void UpdatePost(Post post)
