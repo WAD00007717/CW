@@ -127,6 +127,8 @@ namespace SocialMedia
 
             app.UseHttpsRedirection();
 
+            app.UseExceptionHandler("/error"); 
+
             app.UseRouting();
 
             app.UseAuthentication();

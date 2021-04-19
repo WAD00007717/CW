@@ -45,6 +45,7 @@ namespace SocialMedia.Controllers
                 return NotFound();
             }
             return Ok(_mapper.Map<PostReadDto>(post));
+            
         }
 
         // POST api/posts
