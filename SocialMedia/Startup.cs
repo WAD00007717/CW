@@ -39,13 +39,10 @@ namespace SocialMedia
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(); //.AddJsonOptions(options => {
-            //    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            //    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            //});
+            services.AddControllers();
             services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer
                (Configuration.GetConnectionString("SocialMediaConnection")));
-
+            services.AddCors();
             services.AddAutoMapper(typeof(Profiles));
             services.AddScoped<IPostRepo, SqlPostRepo>();
             services.AddScoped<IUserRepo, SqlUserRepo>();
@@ -130,6 +127,13 @@ namespace SocialMedia
             app.UseExceptionHandler("/error"); 
 
             app.UseRouting();
+
+            // Enabling cors policy for *
+            app.UseCors(x => x
+                .SetIsOriginAllowed(origin => true)
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
 
             app.UseAuthentication();
 
