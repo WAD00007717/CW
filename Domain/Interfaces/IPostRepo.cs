@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.DTO;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,10 @@ namespace SocialMedia.Interfaces
 {
     public interface IPostRepo
     {
-        bool SaveChanges();
-        Task<IEnumerable<Post>> GetAllPosts();
-        Post GetPostById(int id);
-        void CreatePost(Post post);
+        Task<bool> SaveChangesAsync();
+        Task<PostsWithCountDto> GetAllPostsAsync(int? pageNumber, int? userId);
+        Task<Post> GetPostByIdAsync(int id);
+        Task<Post> CreatePostAsync(Post post);
         void UpdatePost(Post post);
         void DeletePost(Post post);
 
