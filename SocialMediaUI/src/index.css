@@ -1,0 +1,67 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(./img/mario-bg.png) no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  background-color: #95e8f3;
+  min-height: 100%;
+}
+
+form {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+form button,
+form h5 {
+  margin: 20px 0;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #ec407a;
+  box-shadow: none;
+}
+
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label,
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="password"]:not(.browser-default):focus:not([readonly]) + label {
+  color: #ec407a !important;
+}
+
+/* pagination */
+.pagination {
+  cursor: pointer;
+}
+
+/* // */
+.post-image {
+  width: 100%;
+  max-width: 250px;
+
+  display: flex;
+  margin: 1rem auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-form {
+  padding: 10px !important;
+  margin-top: 0 !important;
+}
+.comment-form button {
+  margin: 8px 0;
+}
+
+.comment-form .input-field {
+  margin: 0 !important;
+}
