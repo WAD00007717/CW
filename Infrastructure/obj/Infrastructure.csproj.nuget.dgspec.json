@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Domain\\Domain.csproj": {
+    "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Khotam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Khotam\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Khotam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Khotam\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Domain\\Domain.csproj"
+              "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Domain\\Domain.csproj"
               }
             }
           }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "McVBOXwNZpyvsBBn4AlU6W6UASEupSr3G9u03oNdnxz0uafL+rUFv0sH+a3ikryy4vzCPci58hpOq4NFVw4Csw==",
+  "dgSpecHash": "uax33VSX4skwPQZnRbZxeU0mxEV5NdBE8Q5aUXwfT4XQf474HFDclbnoEv52g9op/whd0QhX2MwMtwBoL+qNbg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Khotam\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Khotam\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

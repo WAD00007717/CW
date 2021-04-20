@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gIvwFjbKQRp2K8CtszMeFmvTuG9mvjgorJ8HRIeiBTVVVygYMUPSyDiHxyIHDYeDeOIPzVLdf/bDRkGLvi+2jg==",
+  "dgSpecHash": "WttSonYCKNkxDGEKslPBCHXCXvDXGDV8bB/iQZVL2oT7sLRmAaehPW+jae5YTlAdt8oItMzUEk8u1Xax+idvNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Khotam\\Desktop\\SocialMediaSolution\\SocialMedia\\SocialMediaApi.csproj",
+  "projectFilePath": "C:\\Users\\Khotam\\source\\repos\\WAD.CW2.7717\\SocialMedia\\SocialMediaApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Khotam\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Khotam\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
