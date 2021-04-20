@@ -12,6 +12,7 @@ namespace Domain.DTO
         public string Description { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
+        public User User { get; set; }
         public ICollection<CommentReadDto> Comments { get; set; }
     }
 }

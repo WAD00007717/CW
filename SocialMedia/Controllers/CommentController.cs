@@ -28,9 +28,9 @@ namespace SocialMedia.Controllers
 
         // GET api/comments
         [HttpGet]
-        public async Task<ActionResult<CommentsGetAllDto>> GetAllComments([FromQuery] int? pageNumber, int? userId)
+        public async Task<ActionResult<CommentsGetAllDto>> GetAllComments([FromQuery] int? pageNumber, int? userId, int? postId)
         {
-            var comments = await _repository.GetAllCommentsAsync(pageNumber, userId);
+            var comments = await _repository.GetAllCommentsAsync(pageNumber, userId, postId);
             return Ok(_mapper.Map<CommentsGetAllDto>(comments));
         }
 

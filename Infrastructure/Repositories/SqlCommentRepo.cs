@@ -42,7 +42,7 @@ namespace Infrastructure.Repositories
             _context.Comments.Remove(comment);
         }
 
-        public async Task<CommentsWithCountDto> GetAllCommentsAsync(int? pageNumber, int? userId)
+        public async Task<CommentsWithCountDto> GetAllCommentsAsync(int? pageNumber, int? userId, int? postId)
         {
             int pageSize = 10;
             int page = pageNumber ?? 1;
@@ -50,13 +50,22 @@ namespace Infrastructure.Repositories
             ICollection<Comment> comments;
             if (userId != null)
             {
-                comments = await _context.Comments.Where(p => p.UserId == userId)
+                comments = await _context.Comments.Include(c => c.User).Where(c => c.UserId == userId)
                                         .Skip(((page - 1) * pageSize)).Take(pageSize)
                                         .OrderByDescending(c => c.CreatedAt).ToListAsync();
             }
-            comments = await _context.Comments
+            else if (postId != null)
+            {
+                comments = await _context.Comments.Include(c => c.User).Where(c => c.PostId == postId)
+                                        .Skip(((page - 1) * pageSize)).Take(pageSize)
+                                        .OrderByDescending(c => c.CreatedAt).ToListAsync();
+            } else
+            {
+                comments = await _context.Comments.Include(c => c.User)
                                     .Skip(((page - 1) * pageSize)).Take(pageSize)
                                     .OrderByDescending(c => c.CreatedAt).ToListAsync();
+            }
+            
             CommentsWithCountDto list = new CommentsWithCountDto();
             list.Comments = comments;
             list.Count = count;

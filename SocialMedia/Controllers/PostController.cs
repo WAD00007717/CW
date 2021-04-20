@@ -35,7 +35,7 @@ namespace SocialMedia.Controllers
         }
 
         // GET api/posts/{id}
-        [Authorize]
+        //[Authorize]
         [HttpGet("{id}", Name = "GetPostByIdAsync")]
         public async Task<ActionResult<PostReadDto>> GetPostByIdAsync(int id)
         {
@@ -49,7 +49,7 @@ namespace SocialMedia.Controllers
         }
 
         // POST api/posts
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<ActionResult<PostReadDto>> CreatePostAsync(PostCreateDto post)
         {

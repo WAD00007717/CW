@@ -44,21 +44,32 @@ namespace Infrastructure.Repositories
 
         public async Task<PostsWithCountDto> GetAllPostsAsync(int? pageNumber, int? userId)
         {
-            int pageSize = 10;
+            int pageSize = 3;
             int page = pageNumber ?? 1;
-            var count = _context.Posts.Count();
             ICollection<Post> posts;
+            int count;
             if(userId != null)
             {
+                count = _context.Posts.FromSqlRaw("select Id, Title, '' as Image, UserId, Description, CreatedAt from dbo.Posts").Include(p => p.User)
+                                         .Where(p => p.UserId == userId)
+                                         .OrderByDescending(p => p.CreatedAt)
+                                         .Count();
                 posts = await _context.Posts.FromSqlRaw("select Id, Title, '' as Image, UserId, Description, CreatedAt from dbo.Posts").Include(p => p.User)
-                                            .Where(p => p.UserId == userId).Skip(((page - 1) * pageSize)).Take(pageSize)
-                                            .OrderByDescending(p => p.CreatedAt).ToListAsync();
+                                        .Where(p => p.UserId == userId)
+                                        .OrderByDescending(p => p.CreatedAt)
+                                        .Skip(((page - 1) * pageSize)).Take(pageSize)
+                                        .ToListAsync();
+            }
+            else
+            {
+                posts = await _context.Posts.FromSqlRaw("select Id, Title, '' as Image, UserId, Description, CreatedAt from dbo.Posts").Include(p => p.User)
+                                            .OrderByDescending(p => p.CreatedAt)
+                                            .Skip(((page - 1) * pageSize)).Take(pageSize)
+                                            .ToListAsync();
+                count = _context.Posts.Count();
             }
 
-            posts = await _context.Posts.FromSqlRaw("select Id, Title, '' as Image, UserId, Description, CreatedAt from dbo.Posts").Include(p => p.User)
-                                            .Skip(((page - 1) * pageSize)).Take(pageSize)
-                                            .OrderByDescending(p => p.CreatedAt).ToListAsync();
-           
+
             PostsWithCountDto list = new PostsWithCountDto();
             list.Posts = posts;
             list.Count = count;
@@ -67,7 +78,7 @@ namespace Infrastructure.Repositories
 
         public async Task<Post> GetPostByIdAsync(int id)
         {
-            var post = await _context.Posts.Include(p => p.Comments).FirstOrDefaultAsync(p => p.Id == id);
+            var post = await _context.Posts.Include(p => p.Comments).Include(p => p.User).FirstOrDefaultAsync(p => p.Id == id);
             return post;
         }
 

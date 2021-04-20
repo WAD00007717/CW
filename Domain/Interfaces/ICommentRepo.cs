@@ -10,7 +10,7 @@ namespace SocialMedia.Interfaces
     public interface ICommentRepo
     {
         Task<bool> SaveChangesAsync();
-        Task<CommentsWithCountDto> GetAllCommentsAsync(int? pageNumber, int? userId);
+        Task<CommentsWithCountDto> GetAllCommentsAsync(int? pageNumber, int? userId, int? postId);
         Task<Comment> GetCommentByIdAsync(int id);
         Task<Comment> CreateCommentAsync(Comment comment);
         void UpdateComment(Comment comment);

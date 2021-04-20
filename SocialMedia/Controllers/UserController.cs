@@ -56,7 +56,7 @@ namespace SocialMediaApi.Controllers
 
         // POST api/users
         [HttpPost("Register")]
-        public async Task<ActionResult<UserReadDto>> CreateUserAsync(UserCreateDto user)
+        public async Task<ActionResult<UserReadDto>> CreateUserAsync([FromBody] UserCreateDto user)
         {
             // hash password for securoty reasons
             user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);

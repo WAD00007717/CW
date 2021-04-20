@@ -35,12 +35,13 @@ namespace Infrastructure.Repositories
 
         public async Task<UsersWithCountDto> GetAllUsersAsync(int? pageNumber)
         {
-            int pageSize = 10;
+            int pageSize = 3;
             int page = pageNumber ?? 1;
             var count = _context.Users.Count();
             var users = await _context.Users
+                                    .OrderByDescending(u => u.CreatedAt)
                                     .Skip(((page - 1) * pageSize)).Take(pageSize)
-                                    .OrderByDescending(u => u.CreatedAt).ToListAsync();
+                                    .ToListAsync();
 
             UsersWithCountDto list = new UsersWithCountDto();
             list.Users = users;
