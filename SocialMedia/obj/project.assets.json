@@ -6123,11 +6123,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Khotam\\Downloads\\CW-master\\SocialMedia\\SocialMediaApi.csproj",
+      "projectUniqueName": "C:\\Users\\Khotam\\Desktop\\WAD.CW2.00007717\\CW-master\\SocialMedia\\SocialMediaApi.csproj",
       "projectName": "SocialMediaApi",
-      "projectPath": "C:\\Users\\Khotam\\Downloads\\CW-master\\SocialMedia\\SocialMediaApi.csproj",
+      "projectPath": "C:\\Users\\Khotam\\Desktop\\WAD.CW2.00007717\\CW-master\\SocialMedia\\SocialMediaApi.csproj",
       "packagesPath": "C:\\Users\\Khotam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Khotam\\Downloads\\CW-master\\SocialMedia\\obj\\",
+      "outputPath": "C:\\Users\\Khotam\\Desktop\\WAD.CW2.00007717\\CW-master\\SocialMedia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Khotam\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6144,11 +6144,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Khotam\\Downloads\\CW-master\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Khotam\\Downloads\\CW-master\\Domain\\Domain.csproj"
+            "C:\\Users\\Khotam\\Desktop\\WAD.CW2.00007717\\CW-master\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Khotam\\Desktop\\WAD.CW2.00007717\\CW-master\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\Khotam\\Downloads\\CW-master\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Khotam\\Downloads\\CW-master\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\Khotam\\Desktop\\WAD.CW2.00007717\\CW-master\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Khotam\\Desktop\\WAD.CW2.00007717\\CW-master\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
